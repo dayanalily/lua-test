@@ -4,7 +4,7 @@ import "../styles/AutoComplete.css";
 
 interface AutoCompleteProps {
   placeholder?: string;
-  onSelect?: (selectedItem: string) => void; // Añadimos la prop onSelect
+  onSelect?: (selectedItem: string) => void;
 }
 
 interface AutoCompleteResult {
@@ -18,7 +18,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({ placeholder, onSelect }) =>
     items: [],
     loading: false,
   });
-  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(true); // Estado para controlar la visibilidad del dropdown
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(true);
 
   useEffect(() => {
     if (query.length > 0) {
@@ -33,19 +33,18 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({ placeholder, onSelect }) =>
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-    setIsDropdownVisible(true); // Mostrar el dropdown cuando cambia el input
+    setIsDropdownVisible(true);
   };
 
   const handleSelect = (item: string) => {
     setQuery(item);
-    setIsDropdownVisible(false); // Ocultar el dropdown al seleccionar
+    setIsDropdownVisible(false);
     if (onSelect) {
-      onSelect(item); // Llamar a la función onSelect si está definida
+      onSelect(item);
     }
   };
 
   const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-    // Dejar un pequeño retraso para permitir que se capture el clic en la lista
     setTimeout(() => {
       setIsDropdownVisible(false);
     }, 200);
@@ -64,7 +63,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({ placeholder, onSelect }) =>
         type="text"
         value={query}
         onChange={handleChange}
-        onBlur={handleBlur} // Ocultar el dropdown al perder el foco
+        onBlur={handleBlur}
         placeholder={placeholder}
         className="autocomplete-input"
       />
