@@ -4,7 +4,7 @@
 
 1. Clone the repository:
 
-git clone https://github.com/yourusername/autocomplete-component.git
+git clone [https://github.com/yourusername/autocomplete-component.git](https://github.com/dayanalily/lua-test
 
 2. Navigate to the project directory:
 3. Install dependencies:
